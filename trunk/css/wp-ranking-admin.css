@@ -1,0 +1,23 @@
+.drag-icon {
+	background-image:url('../images/drag.png');
+	width: 12px;
+	height: 12px;
+	cursor: move;
+	display: inline-block;
+}
+
+#sortable tr {
+	cursor: move;
+}
+
+#icon-ranker {
+	background-image:url('../images/icon_32.png');
+}
+
+.rankings {
+	margin-top: 20px;
+}
+
+.rankings td {
+	padding: 10px;
+}
