@@ -3,8 +3,8 @@
 Plugin Name: Sports Rankings and Lists
 Plugin URI: http://fantasyknuckleheads.com
 Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams such as NFL, MLB, NHL, NBA and fantasy rankings such as fantasy football, fantasy baseball etc. 
-Version: 1.3
-Author: Kutu
+Version: 1.4
+Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
 
