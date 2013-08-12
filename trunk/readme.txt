@@ -63,15 +63,15 @@ If you wish to unlock all the features and remove the credits contact kurt@fanta
 
 == Screenshots ==
 
-1. All featured enabled
-2. Creating list
-3. Upload and Insert list - make sure LINK URL is populated, if not then click "file URL" then click "Insert into Post"
-4. Creating a ranker
-5. Add list to ranker - select list from drop down menu
-6. Creating Rankings - this is where each person (author or higher) can actaully go create the rankings users will see in the post or page you have placed the ranker shortcode in.
-7. What the authors see when creating rankings, in this photo they have deleted 22 items from the default list and created their top 10.
-8. Publishing Post with Ranker shortcode
-9. Ranker Settings
+1. All features enabled
+2. STEP 1: Creating list
+3. STEP 2: Upload and Insert list - make sure LINK URL is populated, if not then click "file URL" then click "Insert into Post"
+4. STEP 3: Creating a ranker
+5. STEP 4: Add list to ranker - select list from drop down menu
+6. STEP 5A: Creating Rankings - this is where each person (author or higher) can actaully go create the rankings users will see in the post or page you have placed the ranker shortcode in.
+7. STEP 5B: What the authors see when creating rankings, in this photo they have deleted 22 items from the default list and created their top 10.
+8. STEP 6: Publishing Post with Ranker shortcode
+9. Ranker Settings - Enable advanced settings to show avatars and comments and multiple authors rankings (not just admin) - to disable the credits a premium version must be purchased - email kurt@fantasyknuckleheads.com for a premium version. 
 
 
 
