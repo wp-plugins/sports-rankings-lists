@@ -1,0 +1,303 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-ranker plugin 1.0\n"
+"POT-Creation-Date: 2013-07-04 12:27+0800\n"
+"PO-Revision-Date: 2013-07-04 12:37+0800\n"
+"Last-Translator: Ajay Verma <ajayverma1986@gmail.com>\n"
+"Language-Team: \n"
+"Language: english\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin.php:6 ../wp-ranking.php:62
+msgid "Ranker"
+msgstr ""
+
+#: ../admin.php:6
+msgid "Ranker Admin"
+msgstr ""
+
+#: ../admin.php:7
+msgid "Rankings"
+msgstr ""
+
+#: ../admin.php:16
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: ../admin.php:25
+msgid "Click the Rankings below to rank players"
+msgstr ""
+
+#: ../admin.php:34 ../admin.php:366
+msgid "Title"
+msgstr ""
+
+#: ../admin.php:35
+msgid "List"
+msgstr ""
+
+#: ../admin.php:36
+msgid "Status"
+msgstr ""
+
+#: ../admin.php:37
+msgid "Date Created"
+msgstr ""
+
+#: ../admin.php:57
+msgid "Ranked"
+msgstr ""
+
+#: ../admin.php:58
+msgid "New"
+msgstr ""
+
+#: ../admin.php:78
+msgid "Drag and drop players in the desired order"
+msgstr ""
+
+#: ../admin.php:128
+msgid "Rank"
+msgstr ""
+
+#: ../admin.php:129 ../admin.php:238 ../admin.php:254
+msgid "Name"
+msgstr ""
+
+#: ../admin.php:130 ../admin.php:238 ../admin.php:254
+msgid "Team"
+msgstr ""
+
+#: ../admin.php:131 ../admin.php:238 ../admin.php:254
+msgid "Position"
+msgstr ""
+
+#: ../admin.php:132 ../admin.php:153
+msgid "Delete"
+msgstr ""
+
+#: ../admin.php:160
+msgid "Add Comment (optional)"
+msgstr ""
+
+#: ../admin.php:164
+msgid "Save Changes"
+msgstr ""
+
+#: ../admin.php:164
+msgid "This can not be undoe, are you sure?"
+msgstr ""
+
+#: ../admin.php:164
+msgid "Reset to defaults"
+msgstr ""
+
+#: ../admin.php:211
+msgid "Players"
+msgstr ""
+
+#: ../admin.php:218 ../admin.php:367
+msgid "Player List"
+msgstr ""
+
+#: ../admin.php:238 ../admin.php:254
+msgid "Default Rank"
+msgstr ""
+
+#: ../admin.php:238 ../admin.php:254
+msgid "Remove"
+msgstr ""
+
+#: ../admin.php:242
+msgid "Add Player"
+msgstr ""
+
+#: ../admin.php:245
+msgid "Import from csv file"
+msgstr ""
+
+#: ../admin.php:246
+msgid ""
+"You can upload CSV file in a format like <strong>Default rank,Player name,"
+"Team,Position</strong> - one player per line."
+msgstr ""
+
+#: ../admin.php:247
+msgid "Download the example file"
+msgstr ""
+
+#: ../admin.php:263
+msgid ""
+"If you upload the file, it will overwrite your existing list. Are you sure "
+"you want to do it?"
+msgstr ""
+
+#: ../admin.php:368 ../admin.php:372
+msgid "Shortcode"
+msgstr ""
+
+#: ../admin.php:369
+msgid "Date"
+msgstr ""
+
+#: ../wp-ranking.php:22
+msgid "Player lists"
+msgstr ""
+
+#: ../wp-ranking.php:23
+msgid "Parent list:"
+msgstr ""
+
+#: ../wp-ranking.php:24
+msgid "Lists"
+msgstr ""
+
+#: ../wp-ranking.php:25
+msgid "View list"
+msgstr ""
+
+#: ../wp-ranking.php:26
+msgid "Add New List"
+msgstr ""
+
+#: ../wp-ranking.php:27
+msgid "New List"
+msgstr ""
+
+#: ../wp-ranking.php:28
+msgid "Edit List"
+msgstr ""
+
+#: ../wp-ranking.php:29
+msgid "Update List"
+msgstr ""
+
+#: ../wp-ranking.php:30
+msgid "Search lists"
+msgstr ""
+
+#: ../wp-ranking.php:31
+msgid "No lists found"
+msgstr ""
+
+#: ../wp-ranking.php:32
+msgid "No lists found in Trash"
+msgstr ""
+
+#: ../wp-ranking.php:36
+msgid "player_list"
+msgstr ""
+
+#: ../wp-ranking.php:37
+msgid "Player list"
+msgstr ""
+
+#: ../wp-ranking.php:63
+msgid "Parent Ranker:"
+msgstr ""
+
+#: ../wp-ranking.php:64 ../wp-ranking.php:77
+msgid "Rankers"
+msgstr ""
+
+#: ../wp-ranking.php:65
+msgid "View Ranker"
+msgstr ""
+
+#: ../wp-ranking.php:66
+msgid "Add New Ranker"
+msgstr ""
+
+#: ../wp-ranking.php:67
+msgid "New Ranker"
+msgstr ""
+
+#: ../wp-ranking.php:68
+msgid "Edit Ranker"
+msgstr ""
+
+#: ../wp-ranking.php:69
+msgid "Update Ranker"
+msgstr ""
+
+#: ../wp-ranking.php:70
+msgid "Search rankers"
+msgstr ""
+
+#: ../wp-ranking.php:71
+msgid "No rankers found"
+msgstr ""
+
+#: ../wp-ranking.php:72
+msgid "No rankers found in Trash"
+msgstr ""
+
+#: ../wp-ranking.php:76
+msgid "ranker"
+msgstr ""
+
+#: ../wp-ranking.php:112
+msgid "List Categories"
+msgstr ""
+
+#: ../wp-ranking.php:113
+msgid "All List Categories"
+msgstr ""
+
+#: ../wp-ranking.php:114
+msgid "Parent List Category"
+msgstr ""
+
+#: ../wp-ranking.php:115
+msgid "Parent List Category:"
+msgstr ""
+
+#: ../wp-ranking.php:116
+msgid "New List Category Name"
+msgstr ""
+
+#: ../wp-ranking.php:117
+msgid "Add New List Category"
+msgstr ""
+
+#: ../wp-ranking.php:118
+msgid "Edit List Category"
+msgstr ""
+
+#: ../wp-ranking.php:119
+msgid "Update List Category"
+msgstr ""
+
+#: ../wp-ranking.php:120
+msgid "Separate list categories with commas"
+msgstr ""
+
+#: ../wp-ranking.php:121
+msgid "Search list categories"
+msgstr ""
+
+#: ../wp-ranking.php:122
+msgid "Add or remove list categories"
+msgstr ""
+
+#: ../wp-ranking.php:123
+msgid "Choose from the most used list categories"
+msgstr ""
+
+#: ../wp-ranking.php:164
+msgid "Click to sort by this author"
+msgstr ""
+
+#: ../wp-ranking.php:173
+msgid "Click to sort by composite ranking"
+msgstr ""
+
+#: ../wp-ranking.php:173
+msgid "Composite Ranking"
+msgstr ""
