@@ -4,7 +4,7 @@ Donate link: http://fantasyknuckleheads.com
 Tags: rank, sport, ranking, rating, list, rankings, NFL, MLB, NBA, NHL, Fantasy Football, Fantasy Baseball, Fantasy Hockey, Fantasy Sports, athlete, position, rate, custom post types, post type
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ If you wish to unlock all the features and remove the credits contact kurt@fanta
 
 = When I change my rankings in the "ranker" - the post doesn't update with the new rankings =
 
-If Rankings are updated the post must be updated by clicking the "update" button within the post where the rankings shortcode is placed.
+If Rankings are updated the post must be updated (if using WP-SUPER-CACHE or simular) by clicking the "update" button within the post where the rankings shortcode is placed.
 
 
 = I can't UPLOAD CSV files =
@@ -116,6 +116,12 @@ Admins can enable the comment feature in the Ranker Admin --> Ranker Settings (S
 
 
 == Changelog ==
+
+= 1.5 =
+*   Updated plugin location URL
+
+= 1.4 =
+*   Updated read me
 
 = 1.3 =
 *   Fixed the order when there is only one author participating in rankings

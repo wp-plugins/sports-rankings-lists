@@ -3,7 +3,7 @@
 Plugin Name: Sports Rankings and Lists
 Plugin URI: http://fantasyknuckleheads.com
 Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams such as NFL, MLB, NHL, NBA and fantasy rankings such as fantasy football, fantasy baseball etc. 
-Version: 1.4
+Version: 1.5
 Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
@@ -240,7 +240,7 @@ function ranker_shortcode( $atts ) {
 		}
 	}
 	if (get_option( 'show-comments' ) || get_option( 'show-avatars' ) || get_option( 'allow-authors' )) {
-		echo '<br><p style="font-size:85%;">Want rankings like this? <a href="http://wordpress.org/plugins/wp-ranking/">Download Plugin</a> or read more @ <a href="http://fantasyknuckleheads.com/" title="Fantasy Football for all you Knuckleheads">Fantasy Knuckleheads</a></p>';
+		echo '<br><p style="font-size:85%;">Want rankings like this? <a href="http://wordpress.org/plugins/sports-rankings-lists/">Download Plugin</a> or read more @ <a href="http://fantasyknuckleheads.com/" title="Fantasy Football for all you Knuckleheads">Fantasy Knuckleheads</a></p>';
 	}
 	
 
