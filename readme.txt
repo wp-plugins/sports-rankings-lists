@@ -4,7 +4,7 @@ Donate link: http://fantasyknuckleheads.com
 Tags: rank, sport, ranking, rating, list, rankings, NFL, MLB, NBA, NHL, Fantasy Football, Fantasy Baseball, Fantasy Hockey, Fantasy Sports, athlete, position, rate, custom post types, post type
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,10 @@ Admins can enable the comment feature in the Ranker Admin --> Ranker Settings (S
 
 
 == Changelog ==
+
+= 1.6 =
+*   Fixed the order when there is only one author participating in rankings
+*   Fixed the sorting issue when there are multiple rankers on the same page
 
 = 1.5 =
 *   Updated plugin location URL

@@ -51,7 +51,7 @@ function ranker_settings() {
 	        <form action="options.php" method="POST">
 	            <?php settings_fields( 'ranker-plugin' ); ?>
 	            <?php do_settings_sections( 'ranker-plugin' ); ?>
-	            <p><strong>Note</strong>: enabling any of these features will enable links to help promote this plugin. ** email kurt@fantasyknuckleheads.com for to get a version without promotional links **</p>
+	            <p><strong>Note</strong>: enabling any of these features will enable links to help promote this plugin. For a version without credits email kurt@fantasyknuckleheads.com</p>
 	            <?php submit_button(); ?>
 	        </form>
 
