@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Sports Rankings and Lists
-Plugin URI: http://fantasyknuckleheads.com
-Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams such as NFL, MLB, NHL, NBA and fantasy rankings such as fantasy football, fantasy baseball etc. 
-Version: 1.5
+Plugin Name: Wordpress List Ranking Plugin
+Plugin URI: http://wordpress.org
+Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams. 
+Version: 1.6
 Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
@@ -171,22 +171,21 @@ function ranker_shortcode( $atts ) {
 
 	$rankers_counter++;
 	
-	echo '<table id="ranker-' . $rankers_counter . '">';
+	echo '<table id="ranker' . $rankers_counter . '">';
 	echo '<thead>';
 	echo '<tr>';
 	echo '<th></th>';
-	$authors_count = 1;
+	$authors_count = 0;
 	foreach ($rankings as $author => $data) {
-		echo '<th class="author" onclick="sortTable(' . $authors_count . ')" title="' . __( 'Click to sort by this author', 'wp-ranking' ) . '">';
+		$authors_count++;
+		echo '<th class="author" onclick="sortTable(' . $authors_count . ', \'ranker' . $rankers_counter . '\')" title="' . __( 'Click to sort by this author', 'wp-ranking' ) . '">';
 		if (get_option( 'show-avatars' )) echo get_avatar( $author, 50 );
 		$user_info = get_userdata($author);
 		echo '<br>';
 		echo '<span class="ranked-user">' . $user_info->display_name . '</span>';
-		echo '</th>';
-		$authors_count++;
-
+		echo '</th>';		
 	}
-	if ($authors_count > 2) echo '<th class="author" onclick="sortTable(' . $authors_count . ')" title="' . __( 'Click to sort by composite ranking', 'wp-ranking' ) . '">' . __( 'Composite', 'wp-ranking' ) . '</th>';
+	if ($authors_count > 1) echo '<th class="author" onclick="sortTable(' . ($authors_count + 1) . ', \'ranker' . $rankers_counter . '\')" title="' . __( 'Click to sort by composite ranking', 'wp-ranking' ) . '">' . __( 'Composite', 'wp-ranking' ) . '</th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -217,7 +216,7 @@ function ranker_shortcode( $atts ) {
 			echo '</td>';
 
 		}
-		if ($authors_count > 2) {
+		if ($authors_count > 1) {
 			echo '<td class="sort">';
 			echo round($composite / $i);
 			echo '</td>';
@@ -247,31 +246,16 @@ function ranker_shortcode( $atts ) {
 	// Table sorting function
 	?>
 	<script>
-	function sortTable(column){
-	    var tbl = document.getElementById("ranker-<?php echo $rankers_counter; ?>").tBodies[0];
-	    var store = [];
-	    for(var i=0, len=tbl.rows.length; i<len; i++){
-	        var row = tbl.rows[i];
-	        var sortnr = parseFloat(row.cells[column].textContent || row.cells[column].innerText);
-	        if(!isNaN(sortnr)) store.push([sortnr, row]);
-	    }
-	    store.sort(function(x,y){
-	        return x[0] - y[0];
-	    });
-	    for(var i=0, len=store.length; i<len; i++){
-	        tbl.appendChild(store[i][1]);
-	    }
-	    store = null;
-	}
 
-	var authorsCount = <?php echo $authors_count; ?>;
-	if (authorsCount == 1) {
-		sortTable(authorsCount);
-	}
-	else
-	{
-		sortTable(authorsCount - 1);
-	}
+	    var authorsCount = <?php echo $authors_count; ?>;
+	    	if (authorsCount == 1) {
+	    		sortTable(1, 'ranker<?php echo $rankers_counter; ?>');
+	    	}
+	    	else {
+	    		sortTable(authorsCount + 1, 'ranker<?php echo $rankers_counter; ?>');
+	    	}
+	
+	
 	</script>
 	<?php
 	$output = ob_get_contents();
@@ -281,6 +265,7 @@ function ranker_shortcode( $atts ) {
 add_shortcode( 'ranker', 'ranker_shortcode' );
 
 function wp_ranking_styles() {
+	wp_enqueue_script('ranker-script', plugins_url( '/js/scripts.js' , __FILE__ ));
     wp_register_style( 'wp-ranking-style', plugins_url('/css/wp-ranking.css', __FILE__) );
     wp_enqueue_style( 'wp-ranking-style' );
 }
@@ -294,4 +279,6 @@ if (function_exists('load_plugin_textdomain'))
 	{
 		load_plugin_textdomain('wp-ranking', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 	}
+
 ?>
+
