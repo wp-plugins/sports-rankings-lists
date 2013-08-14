@@ -265,10 +265,11 @@ function ranker_shortcode( $atts ) {
 add_shortcode( 'ranker', 'ranker_shortcode' );
 
 function wp_ranking_styles() {
+if ( is_single() ) {
 	wp_enqueue_script('ranker-script', plugins_url( '/js/scripts.js' , __FILE__ ));
     wp_register_style( 'wp-ranking-style', plugins_url('/css/wp-ranking.css', __FILE__) );
     wp_enqueue_style( 'wp-ranking-style' );
-}
+}}
  
 
 add_action('wp_enqueue_scripts', 'wp_ranking_styles');
