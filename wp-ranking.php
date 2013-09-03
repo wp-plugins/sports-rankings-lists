@@ -3,7 +3,7 @@
 Plugin Name: Wordpress List Ranking Plugin
 Plugin URI: http://wordpress.org
 Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams. 
-Version: 1.7
+Version: 1.8
 Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
@@ -174,7 +174,7 @@ if ($authors_count > 1) echo '<th class="author" onclick="sortTable(' . ($author
 		$composite = 0;
 		$i = 0;
 		foreach ($rankings as $ranking) {
-			echo '<td>';
+			echo '<td align="center>';
 			foreach ($ranking['data'] as $rank => $player_id) {
 				if ($player_id == $player['id']) {
 					echo $rank + 1;
