@@ -3,8 +3,8 @@ Contributors: kutu62, ajayver
 Donate link: http://fantasyknuckleheads.com
 Tags: rank, sport, ranking, rating, list, rankings, NFL, MLB, NBA, NHL, Fantasy Football, Fantasy Baseball, Fantasy Hockey, Fantasy Sports, athlete, position, rate, custom post types, post type
 Requires at least: 3.0.1
-Tested up to: 3.6
-Stable tag: 1.9
+Tested up to: 3.8
+Stable tag: 1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,15 +56,17 @@ If you wish to unlock all the features and remove the credits contact kurt@fanta
 1.   Install the plugin
 2.   Go to Ranker Admin -> List - Upload or Create Lists of Items (admin only) field 1: is default order, field 2 through 4 can be whatever you like.
 3.   Go to Ranker Admin -> Rankers - Create a new "ranker". Choose a list of players created in the previous step. This give you shortcode to be used in post or page.
-4.   Authors (or higher level) can now go to Rankings Menu and drag and drop rankings where they desire as well as add comments for their choices.
+4.   Now go to "Rankings" menu, just below the Add Post option and edit your rankings! Authors (or higher level) can now go to Rankings Menu and drag and drop rankings where they desire as well as add comments for their choices.
 5.   Copy the ranker's shortcode (from step 3) and paste it in post or page where you would like to see your list / rankings. If Rankings are updated the post must be updated by clicking the "update" button. 
+
+READ THIS: view the screenshots <a href="http://wordpress.org/plugins/sports-rankings-lists/screenshots/">here</a> so you know how to use this plugin!
 
 
 
 == Screenshots ==
 
-1. All features enabled
-2. STEP 1: Creating list
+1. All features enabled (see the photo above)
+2. STEP 1: Creating list (see the photo above)
 3. STEP 2: Upload and Insert list - make sure LINK URL is populated, if not then click "file URL" then click "Insert into Post"
 4. STEP 3: Creating a ranker
 5. STEP 4: Add list to ranker - select list from drop down menu
@@ -116,6 +118,9 @@ Admins can enable the comment feature in the Ranker Admin --> Ranker Settings (S
 
 
 == Changelog ==
+
+= 1.10 =
+*   updated instructions
 
 = 1.9 =
 *   made adjustments so it will work with some more themes

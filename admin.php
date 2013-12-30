@@ -40,6 +40,7 @@ function ranker_settings() {
 	        <form action="options.php" method="POST">
 	            <?php settings_fields( 'ranker-plugin' ); ?>
 	            <?php do_settings_sections( 'ranker-plugin' ); ?>
+<h3>READ THIS: view the screenshots <a href="http://wordpress.org/plugins/sports-rankings-lists/screenshots/">here</a> so you know how to use this plugin!</h3>
 	            <p><strong>Note</strong>: enabling any of these features will enable links to help promote this plugin. For a version without credits email kurt@fantasyknuckleheads.com</p>
 	            <?php submit_button(); ?>
 	        </form>
@@ -268,7 +269,7 @@ function wp_ranker_players_custom_box( $post ) {
   jQuery(document).ready(function() {
    
   jQuery('#upload_file_button').click(function() {
-    if (confirm('<?php _e( 'If you upload the file, it will overwrite your existing list. Are you sure you want to do it?', 'wp-ranking' ); ?>')){
+    if (confirm('<?php _e( 'Upload file?', 'wp-ranking' ); ?>')){
       formfield = jQuery('#upload_file').attr('name');
      tb_show('', 'media-upload.php?type=file&amp;TB_iframe=true');
      return false;
