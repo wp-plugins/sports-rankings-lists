@@ -1,0 +1,22 @@
+table#rankings td, table#rankings th  {
+	text-align: center;
+	vertical-align: bottom;
+}
+
+table#rankings .player {
+	text-align: left;
+}
+
+table#rankings .author {
+	cursor: pointer;
+}
+
+.author-comment {
+	background-color: #eeeeee;
+	padding: 10px 10px 20px;
+	margin-top: 5px;
+}
+
+.author-comment .avatar {
+	float: right;
+}
