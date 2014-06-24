@@ -3,7 +3,7 @@
 Plugin Name: Wordpress List Ranking Plugin
 Plugin URI: http://wordpress.org
 Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams. 
-Version: 1.10
+Version: 2.2
 Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
