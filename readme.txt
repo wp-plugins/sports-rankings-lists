@@ -1,10 +1,10 @@
 === Sports Rankings and Lists ===
 Contributors: kutu62, ajayver
 Donate link: http://fantasyknuckleheads.com
-Tags: rank, sport, ranking, rating, list, rankings, NFL, MLB, NBA, NHL, Fantasy Football, Fantasy Baseball, Fantasy Hockey, Fantasy Sports, athlete, position, rate, custom post types, post type
+Tags: rank, sport, ranking, rating, list, rankings, NFL, MLB, NBA, NHL, Fantasy Football, Fantasy Baseball, Fantasy Hockey, Fantasy Sports, athlete, position, rate, custom post types, post type, daily fantasy football, authors, coauthors, co-author, coauthors, multi-author, multiple authors
 Requires at least: 3.1
-Tested up to: 3.9.1
-Stable tag: 2.2
+Tested up to: 4.0
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ The plugin allows authors to rank list of anything and display the table of rank
 
 == Description ==
 
-The plugin allows authors to rank and list ANYTHING and display the table of rankings in posts or pages. Authors can create comments when they create rankings which are displayed below the rankings / list in the wordpress post or page. Created with sports teams and athlete list / rankings in mind, but can be used for anything you want to easily list or rank. We came up with this idea to help multiple authors list / rank players on our fantasy football website. We've seen people use this to rank the top sports teams and players for fantasy baseball and fantasy basketball too. 
+The plugin allows multiple authors to rank and list ANYTHING and display the table of rankings in posts or pages. Authors can create comments when they create rankings which are displayed below the rankings in the wordpress post or page. Created with sports teams and athlete list / rankings in mind, but can be used for anything you want to easily list or rank. We came up with this idea to help multiple authors list / rank players on our fantasy football website. We've seen people use this to rank the top sports teams and players for fantasy baseball and fantasy basketball too. 
 
 = Key features: =
 
@@ -118,6 +118,22 @@ Admins can enable the comment feature in the Ranker Admin --> Ranker Settings (S
 
 
 == Changelog ==
+
+= 3.0 =
+*   added option to show composite rankings in the first column
+*	logged in users will now see their rankings first
+*	added option and shortcode parameter to limit amount of users shown
+*	users are shown in random order in case there are more users that user limit
+*	added option and shortcode parameter to limit amount of players shown
+*	added user roles choice for ranking and commenting
+*	composite rankings now show actual average player position instead of relative avarage position
+*	fixed bugs with file uploading
+*	fixed some other minor bugs
+*	improved code for better performace and flexibility, shortcode code completely rewritten from scratch
+*	improved AJAX call for csv file uploading now follows WordPress standards
+*	added file type restricton - now only csv files are accepted for import
+*	replaced table sorting script for better performance
+*	changed css structure for better styling flexibility
 
 = 2.2 =
 *   updated 

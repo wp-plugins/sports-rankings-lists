@@ -5,7 +5,7 @@
 function ranker_menu() {
     add_menu_page(__( 'Ranker', 'wp-ranking' ), __( 'Ranker Admin', 'wp-ranking' ), 'edit_pages', 'ranker', 'ranker', plugins_url('/images/icon_16.png', __FILE__) ); // This menu is for admins only
     add_submenu_page('ranker',__( 'Ranker Settings', 'wp-ranking' ), __( 'Ranker Settings', 'wp-ranking' ), 'activate_plugins', 'ranker_settings', 'ranker_settings' ); // Plugin settings
-    add_menu_page(__( 'Rankings', 'wp-ranking' ), __( 'Rankings', 'wp-ranking' ), 'publish_posts', 'rankings', 'rankings', plugins_url('/images/icon_16.png', __FILE__), 7 ); //This is for authors
+    add_menu_page(__( 'Rankings', 'wp-ranking' ), __( 'Rankings', 'wp-ranking' ), 'read', 'rankings', 'rankings', plugins_url('/images/icon_16.png', __FILE__), 7 ); //This is for authors
 }
 add_action('admin_menu', 'ranker_menu');
 add_action( 'admin_init', 'ranker_admin_init' );
@@ -13,10 +13,51 @@ function ranker_admin_init() {
     add_settings_section( 'main-section', '', 'main_section_callback', 'ranker-plugin' );
     add_settings_field( 'show-avatars', 'Show Avatars', 'show_avatars_callback', 'ranker-plugin', 'main-section' );
     add_settings_field( 'show-comments', 'Show Comments', 'show_comments_callback', 'ranker-plugin', 'main-section' );
-    add_settings_field( 'allow-authors', 'Allow all users to rank (not only admins)', 'allow_authors_callback', 'ranker-plugin', 'main-section' );
+    add_settings_field( 'composite-position', 'Show Composite Rankings', 'show_composite_position_callback', 'ranker-plugin', 'main-section' );
+    add_settings_field( 'limit-users', 'How many random user rankings to show', 'limit_users_callback', 'ranker-plugin', 'main-section' );
+    add_settings_field( 'limit-players', 'How many players to show', 'limit_players_callback', 'ranker-plugin', 'main-section' );
+    add_settings_field( 'rankings-user-roles', 'Who can rank', 'rankings_user_roles_callback', 'ranker-plugin', 'main-section' );
+    add_settings_field( 'comments-user-roles', 'Who can comment rankings', 'comments_user_roles_callback', 'ranker-plugin', 'main-section' );
     register_setting( 'ranker-plugin', 'show-avatars' );
     register_setting( 'ranker-plugin', 'show-comments' );
-    register_setting( 'ranker-plugin', 'allow-authors' );
+    register_setting( 'ranker-plugin', 'composite-position' );
+    register_setting( 'ranker-plugin', 'limit-users' );
+    register_setting( 'ranker-plugin', 'limit-players' );
+    register_setting( 'ranker-plugin', 'rankings-user-roles' );
+    register_setting( 'ranker-plugin', 'comments-user-roles' );
+
+    if (get_option( 'composite-position' ) === false) { //If composite position wasn't set before, set it to 'right'
+        add_option('composite-position', 'right');
+    }
+
+    if (get_option( 'limit-users' ) === false) { //If user limit wasn't set before, set it to 0
+        add_option('limit-users', '0');
+    }
+
+    if (get_option( 'limit-players' ) === false) { //If player limit wasn't set before, set it to 0
+        add_option('limit-players', '0');
+    }
+
+
+    //If user roles were not assigned
+
+    if (get_option( 'comments-user-roles' ) === false) {
+        add_option('comments-user-roles', array());
+    }
+
+    if (get_option( 'rankings-user-roles' ) === false) {
+        $array = array();
+        if (get_option( 'allow-authors' ) == '1') {
+            $array['author'] = 1;
+        }
+        add_option('rankings-user-roles', $array);
+    }
+        
+    
+
+
+
+    
 }
 function main_section_callback() { 
 }
@@ -32,6 +73,53 @@ function allow_authors_callback() {
     $setting = esc_attr( get_option( 'allow-authors' ) );
     echo '<input type="checkbox" name="allow-authors" value="1" ' . checked(1, $setting, false) . ' />';
 }
+function show_composite_position_callback() {
+    $setting = esc_attr( get_option( 'composite-position' ) );
+    echo '<label><input type="radio" name="composite-position" value="left" ' . checked('left', $setting, false) . ' />In the first column</label><br>';
+    echo '<label><input type="radio" name="composite-position" value="right" ' . checked('right', $setting, false) . ' />In the last column</label>';
+}
+function limit_users_callback() {
+    $setting = esc_attr( get_option( 'limit-users' ) );
+    echo '<input type="number" name="limit-users" value="' . $setting . '" /> (set it to 0 if you want to show all users - you can also use short code [ranker id="xxxxx" limit_users="2"] to limit users on the per post basis )';
+}
+
+function limit_players_callback() {
+    $setting = esc_attr( get_option( 'limit-players' ) );
+    echo '<input type="number" name="limit-players" value="' . $setting . '" /> (set it to 0 if you want to show all players/items - you can also use short code [ranker id="xxxxx" limit_players="2"] to limit players/items on the per post basis)';
+}
+function rankings_user_roles_callback() {
+    $setting = get_option( 'rankings-user-roles' );
+    global $wp_roles;
+    $roles = $wp_roles->roles;
+    foreach ($roles as $role => $data) {
+        if (isset($setting[$role])) {
+            $value = $setting[$role];
+        } else {
+            $value = '';
+        }
+        if ($role != 'administrator') {
+            echo '<label><input type="checkbox" name="rankings-user-roles[' . $role . ']" value="1" ' . checked('1', $value , false) . '/> ' . $data['name'] . '</label><br>';
+        }
+    }
+}
+
+function comments_user_roles_callback() {
+    $setting = get_option( 'comments-user-roles' );
+    global $wp_roles;
+    $roles = $wp_roles->roles;
+    foreach ($roles as $role => $data) {
+        if (isset($setting[$role])) {
+            $value = $setting[$role];
+        } else {
+            $value = '';
+        }
+        if ($role != 'administrator') {
+            echo '<label><input type="checkbox" name="comments-user-roles[' . $role . ']" value="1" ' . checked('1', $value , false) . '/> ' . $data['name'] . '</label><br>';
+        }
+        
+    }
+}
+
 //Page for plugin's settings
 function ranker_settings() {
 	?>
@@ -40,8 +128,16 @@ function ranker_settings() {
 	        <form action="options.php" method="POST">
 	            <?php settings_fields( 'ranker-plugin' ); ?>
 	            <?php do_settings_sections( 'ranker-plugin' ); ?>
-<h3>READ THIS: view the screenshots <a href="http://wordpress.org/plugins/sports-rankings-lists/screenshots/">here</a> so you know how to use this plugin!</h3>
-	            <p><strong>Note</strong>: enabling any of these features will enable links to help promote this plugin. For a version without credits email kurt@fantasyknuckleheads.com</p>
+
+<h2>How to Create Rankings:</h2>
+<ul>
+<li>Step 1: Add a list - upload must be csv - comma delimited file (admin only)</li>
+<li>Step 2: Create a ranker (admin only), which gives you shortcode and creates something for your authors/users to edit</li>
+<li>Step 3: Go to "Rankings" (beneath "Post") and drag drop the players how you want them ranked.  (whichever role you allow, IE author, contributor, etc can do this.)</li>
+<li>Step 4: Add shortcode (to a Post or Page) and publish. Shortcodes can be found under "Ranker" and look like this [ranker id="1161"] you can add one of the following, limit_players="xx" or limit_users="x" - example: [ranker id="1161" limit_players="25"]</li></ul>
+
+<h3>More Help: view the screenshots <a href="http://wordpress.org/plugins/sports-rankings-lists/screenshots/">here</a> For visual learners.</h3>
+	            <p><strong>Note</strong>: changing any of these settings will enable small credit to promote this plugin. For a version without credits email kurt@fantasyknuckleheads.com</p>
 	            <?php submit_button(); ?>
 	        </form>
 	    </div>
@@ -49,15 +145,14 @@ function ranker_settings() {
 } 
 //Page for ranking players
 function rankings() { 
-    if ( !current_user_can( 'publish_posts' ))  {
-            wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-        }
-        if (!get_option( 'allow-authors' ) && !current_user_can( 'activate_plugins' )) {
-        	wp_die( __( 'This feature is only available for admins. You need to enable it from Ranker\'s settings before authors and editors can use it.' ) );
-        }
+
         global $current_user;
         get_currentuserinfo();
+        $rankings_user_roles = get_option( 'rankings-user-roles' );
 
+        if (!isset($rankings_user_roles[$current_user->roles[0]]) AND $current_user->roles[0] != 'administrator') {
+            wp_die( __( 'You are not allowed to view this page' ) );
+        }
         ?>
         <div class="wrap">
         <?php if (!isset($_GET['ranker'])) { // if no ranker was chosen, show the list of all rankers ?>
@@ -177,10 +272,17 @@ function rankings() {
             ?>
                 </tbody>
             </table>
-            <h3 style="margin-top:30px;"><?php _e( 'Add Comment (optional)', 'wp-ranking' ); ?></h3>
-            <?php
-            wp_editor( $ranking[$current_user->ID]['comment'], 'content-id', array( 'textarea_name' => 'ranking[comment]', 'media_buttons' => false, 'tinymce_adv' => array( 'width' => '300', 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_fullscreen,wp_adv' ) ) );
-            ?>
+
+            <?php 
+            $comments_user_roles = get_option( 'comments-user-roles' );
+            if (isset($comments_user_roles[$current_user->roles[0]]) OR $current_user->roles[0] == 'administrator') { ?>
+
+                <h3 style="margin-top:30px;"><?php _e( 'Add Comment (optional)', 'wp-ranking' ); ?></h3>
+                <?php
+                wp_editor( $ranking[$current_user->ID]['comment'], 'content-id', array( 'textarea_name' => 'ranking[comment]', 'media_buttons' => false, 'tinymce_adv' => array( 'width' => '300', 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_fullscreen,wp_adv' ) ) );
+                
+            } ?>
+            
             <p><input type="submit" class="button button-primary" value="<?php _e( 'Save Changes', 'wp-ranking' ); ?>"> <input onclick="return confirm('<?php _e( 'This can not be undoe, are you sure?', 'wp-ranking' ); ?>')" type="submit" class="button" name="reset" value="<?php _e( 'Reset to defaults', 'wp-ranking' ); ?>"></p>
             </form>
             <script>
@@ -266,38 +368,38 @@ function wp_ranker_players_custom_box( $post ) {
        jQuery(this).parent().remove();
      });
   });
-  jQuery(document).ready(function() {
+  jQuery(document).ready(function($) {
    
-  jQuery('#upload_file_button').click(function() {
-    if (confirm('<?php _e( 'Upload file?', 'wp-ranking' ); ?>')){
-      formfield = jQuery('#upload_file').attr('name');
-     tb_show('', 'media-upload.php?type=file&amp;TB_iframe=true');
-     return false;
-    }
+      $('#upload_file_button').click(function() {
+        if (confirm('<?php _e( 'Upload file?', 'wp-ranking' ); ?>')){
+          formfield = $('#upload_file').attr('name');
+         tb_show('', 'media-upload.php?type=file&amp;TB_iframe=true');
+         return false;
+        }
+      });
+      window.send_to_editor = function(html) {
+       url = $(html).attr('href');
+       tb_remove();
+       import_players(url);
+      }
+
+      function import_players(url) {
+        var data = {'action': 'import_players_from_csv',
+                    'url': url
+                };
+        $.post(ajaxurl, data, function(response) {
+                $( "#sortable" ).html(response); 
+            });
+      }
   });
-  window.send_to_editor = function(html) {
-   url = jQuery(html).attr('href');
-   tb_remove();
-   import_players(url);
-  }
-  });
-  function import_players(url) {
-    jQuery.ajax({
-    type: "POST",
-    url: "<?php echo plugins_url( 'import_players.php' , __FILE__ ) ?>",
-    data: {url: url}, 
-    cache: false,
-    success: function(result){
-        jQuery( "#sortable" ).html(result);   
-    },
-    error: function(error){
-        jQuery( "#sortable" ).html(error.responseText);
-    }
-    });
-  }
+  
+
   </script>
   <?php
 }
+
+require_once('import_players.php');
+
 /* Prints the box content */
 function wp_ranker_player_list_custom_box( $post ) {
   // Use nonce for verification
