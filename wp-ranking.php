@@ -3,7 +3,7 @@
 Plugin Name: Rankings and List Plugin
 Plugin URI: http://wordpress.org
 Description: For a version without credits email kurt@fantasyknuckleheads.com - Credits only show if you enable advanced features - Useful for rankings and list of anything you desire but optimized for ranking athletes and sports teams. 
-Version: 3.0
+Version: 3.1
 Author: kutu62
 Author URI: http://fantasyknuckleheads.com
 */
@@ -331,7 +331,7 @@ function show_composite_rankings_header() {
 }
 
 function get_composite_rankings($total, $rankings_count) {
-	return round($total / $rankings_count);
+	return round($total / $rankings_count * 100);
 }
 
 function get_players_name($player) {
