@@ -1,4 +1,4 @@
-.rankings th  {
+﻿.rankings th  {
     margin-left: auto;
     margin-right: auto;
 }
@@ -42,4 +42,34 @@
 
 .ranked-user {
 	padding: 3px;
+}
+/* tables */
+table.rankings {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.rankings thead tr th, table.rankings tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.rankings thead tr .header {
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.rankings tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.rankings tr:nth-child(odd) td { background-color:#ebebeb }
+table.rankings thead tr .headerSortDown, table.rankings thead tr .headerSortUp {
+background-color: #8dbdd8;
 }
